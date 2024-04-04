@@ -1,17 +1,16 @@
 import 'package:flutter/material.dart';
 
-class AnaSayfa extends StatefulWidget {
-  const AnaSayfa({super.key});
+class Siparisler extends StatefulWidget {
+  const Siparisler({super.key});
 
   @override
-  State<AnaSayfa> createState() => _AnaSayfaState();
+  State<Siparisler> createState() => _SiparislerState();
 }
 
-class _AnaSayfaState extends State<AnaSayfa> {
+class _SiparislerState extends State<Siparisler> {
   @override
 
   bool aramaYapiliyorMu = false;
-
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -23,7 +22,7 @@ class _AnaSayfaState extends State<AnaSayfa> {
             print("Arama Sonucu: $aramaSonucu");
           },
         ) :
-        Text('Mercatus Maximus', style: TextStyle(color: Colors.white),),
+        Text('Siparişler', style: TextStyle(color: Colors.white),),
         backgroundColor: Colors.deepPurple,
         centerTitle: true,
         actions:[
@@ -51,7 +50,7 @@ class _AnaSayfaState extends State<AnaSayfa> {
         ],
       ),
       body: Center(
-        child: Text("AnaSayfa"),
+        child: Text("Siparişler"),
       ),
     );
   }

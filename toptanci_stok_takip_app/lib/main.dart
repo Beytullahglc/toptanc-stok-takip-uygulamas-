@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:toptanci_stok_takip_app/AnaSayfa.dart';
+import 'package:toptanci_stok_takip_app/Sayfalar.dart';
 import 'package:toptanci_stok_takip_app/HesapAc.dart';
 
 void main() {
@@ -108,7 +108,7 @@ class _LoginPageState extends State<LoginPage> {
                     backgroundColor: Colors.green,
                   ),
                   onPressed: (){
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => AnaSayfa()));
+                    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => Sayfalar()));
                   },
 
                 ),
