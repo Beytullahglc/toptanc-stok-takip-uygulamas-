@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:toptanci_stok_takip_app/Adres.dart';
 import 'package:toptanci_stok_takip_app/AnaSayfa.dart';
 import 'package:toptanci_stok_takip_app/Hakk%C4%B1nda.dart';
 import 'package:toptanci_stok_takip_app/SifreDegistirme.dart';
@@ -51,6 +52,17 @@ class _AyarlarState extends State<Ayarlar> {
               trailing: Icon(Icons.arrow_right,color: Colors.deepPurple,),
               onTap: (){
                 Navigator.push(context, MaterialPageRoute(builder: (context) => SifreDegistirme()));
+              },
+            ),
+          ),
+
+          Padding(
+            padding: const EdgeInsets.only(top:10,bottom: 10),
+            child: ListTile(
+              title: Text("Adres",style: TextStyle(color: Colors.deepPurple, fontSize: 20),),
+              trailing: Icon(Icons.arrow_right,color: Colors.deepPurple,),
+              onTap: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context) => Adres()));
               },
             ),
           ),

@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:toptanci_stok_takip_app/AnaSayfa.dart';
 import 'package:toptanci_stok_takip_app/Ayarlar.dart';
 import 'package:toptanci_stok_takip_app/Raporlar.dart';
-import 'package:toptanci_stok_takip_app/Siparisler.dart';
-import 'package:toptanci_stok_takip_app/Urunler.dart';
+import 'package:toptanci_stok_takip_app/SiparislerSayfa.dart';
+import 'package:toptanci_stok_takip_app/UrunlerSayfa.dart';
 
 class Sayfalar extends StatefulWidget {
   const Sayfalar({super.key});
@@ -14,7 +14,7 @@ class Sayfalar extends StatefulWidget {
 
 class _AnaSayfaState extends State<Sayfalar> {
 
-  var sayfaListesi = [Raporlar(), Siparisler(), AnaSayfa(), Urunler(), Ayarlar()];
+  var sayfaListesi = [Raporlar(), Siparisler(), AnaSayfa(), UrunlerSayfa(), Ayarlar()];
 
   int secilenIndeks = 2;
 
