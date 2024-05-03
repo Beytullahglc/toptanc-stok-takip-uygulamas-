@@ -15,17 +15,7 @@ class UrunlerSayfa extends StatefulWidget {
 class _UrunlerSayfaState extends State<UrunlerSayfa> {
 
   Future<List<Urunler>> urunleriGoster() async {
-    var urunListesi = <Urunler>[];
-
-    var u1 = Urunler(1, "pirinç", 50, 300);
-    var u2 = Urunler(1, "bulgur", 30, 400);
-    var u3 = Urunler(1, "makarna", 20, 450);
-    var u4 = Urunler(1, "mercimek", 60, 500);
-
-    urunListesi.add(u1);
-    urunListesi.add(u2);
-    urunListesi.add(u3);
-    urunListesi.add(u4);
+    var urunListesi = await UrunlerDb().tumUrunler();
 
     return urunListesi;
   }
@@ -92,7 +82,7 @@ class _UrunlerSayfaState extends State<UrunlerSayfa> {
                       children: [
                         Padding(
                           padding: const EdgeInsets.all(8.0),
-                          child: Image.asset("resimler/pirinç.png"),
+                          child: Image.asset("resimler/pirinç.png",),
                         ),
                         Text("", style: TextStyle(fontSize: 10, color: Colors.deepPurple),),
                       ],
@@ -109,3 +99,4 @@ class _UrunlerSayfaState extends State<UrunlerSayfa> {
     );
   }
 }
+

@@ -7,6 +7,6 @@ class Urunler {
   double urunFiyati;
   int urunStok;
 
-  Urunler(this.urunId, this.urunAdi, this.urunFiyati, this.urunStok);
+  Urunler ({required this.urunId, required this.urunAdi, required this.urunFiyati, required this.urunStok});
 
 }
