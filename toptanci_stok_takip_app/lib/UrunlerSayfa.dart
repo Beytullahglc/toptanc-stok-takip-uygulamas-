@@ -16,7 +16,7 @@ class _UrunlerSayfaState extends State<UrunlerSayfa> {
 
   Future<List<Urunler>> urunleriGoster() async {
     var urunListesi = await UrunlerDb().tumUrunler();
-
+    print(urunListesi);
     return urunListesi;
   }
 
@@ -82,7 +82,7 @@ class _UrunlerSayfaState extends State<UrunlerSayfa> {
                       children: [
                         Padding(
                           padding: const EdgeInsets.all(8.0),
-                          child: Image.asset("resimler/pirinç.png",),
+                          child: Image.asset("resimler/${urun.urunResim}"),
                         ),
                         Text("", style: TextStyle(fontSize: 10, color: Colors.deepPurple),),
                       ],

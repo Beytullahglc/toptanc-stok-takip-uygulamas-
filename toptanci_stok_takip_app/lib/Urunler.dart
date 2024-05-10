@@ -6,7 +6,9 @@ class Urunler {
   String urunAdi;
   double urunFiyati;
   int urunStok;
+  String urunResim;
 
-  Urunler ({required this.urunId, required this.urunAdi, required this.urunFiyati, required this.urunStok});
+
+  Urunler ({required this.urunId, required this.urunAdi, required this.urunFiyati, required this.urunStok, required this.urunResim});
 
 }

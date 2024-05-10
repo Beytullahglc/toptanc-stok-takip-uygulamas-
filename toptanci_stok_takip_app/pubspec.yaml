@@ -61,7 +61,8 @@ flutter:
   # To add resimler to your application, add an resimler section, like this:
   assets:
     - resimler/
-    - database/toptanciDatabase.sqlite
+    - database/toptanciDatabase.db
+    - database/toptanciDb.sqlite
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

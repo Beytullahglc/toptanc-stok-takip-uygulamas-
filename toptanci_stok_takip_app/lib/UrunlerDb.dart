@@ -16,7 +16,6 @@ class UrunlerDb{
 
       for (var satir in maps) {
         print('Satır verisi: $satir');
-        // Diğer işlemler...
       }
 
       if (maps.isNotEmpty) {
@@ -24,9 +23,9 @@ class UrunlerDb{
           Urunler urun = Urunler(
             urunId: satir['urunId'],
             urunAdi: satir['urunAdi'],
-            urunFiyati: satir['urunFiyati'],
+            urunFiyati: satir['urunFiyat'],
             urunStok: satir['urunStok'],
-
+            urunResim: satir['urunResim'],
           );
           urunlerListesi.add(urun);
         }
@@ -47,7 +46,7 @@ class UrunlerDb{
     return List.generate(maps.length, (i){
       var satir = maps[i];
 
-      return Urunler(urunId: satir["urunId"], urunAdi: satir["urunAdi"], urunFiyati: satir["urunFiyati"], urunStok: satir["urunStok"]);
+      return Urunler(urunId: satir["urunId"], urunAdi: satir["urunAdi"], urunFiyati: satir["urunFiyati"], urunStok: satir["urunStok"],urunResim: satir['urunResim']);
     });
   }
 }
