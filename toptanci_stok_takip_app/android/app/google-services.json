@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "250362621858",
+    "project_id": "toptancistoktakipuygulam-edf5f",
+    "storage_bucket": "toptancistoktakipuygulam-edf5f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:250362621858:android:3f3da19e94d729fb1bccfb",
+        "android_client_info": {
+          "package_name": "com.example.toptanci_stok_takip_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBcMCN_NDpgx_cP41ew5YH1NIxmGNqzq9s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

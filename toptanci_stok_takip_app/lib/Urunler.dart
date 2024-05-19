@@ -1,14 +1,9 @@
-import 'package:toptanci_stok_takip_app/UrunlerDb.dart';
-import 'package:toptanci_stok_takip_app/UrunlerSayfa.dart';
-
 class Urunler {
   int urunId;
   String urunAdi;
   double urunFiyati;
   int urunStok;
-  String urunResim;
 
-
-  Urunler ({required this.urunId, required this.urunAdi, required this.urunFiyati, required this.urunStok, required this.urunResim});
+  Urunler(this.urunId, this.urunAdi, this.urunFiyati, this.urunStok);
 
 }

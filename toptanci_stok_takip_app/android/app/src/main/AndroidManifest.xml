@@ -29,5 +29,11 @@
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />
+        <meta-data
+            android:name="com.google.firebase.analytics.APP_ID"
+            android:value="@string/google_app_id" />
+        <meta-data
+            android:name="com.google.android.gms.analytics.globalConfigResource"
+            android:resource="@xml/global_tracker" />
     </application>
 </manifest>
