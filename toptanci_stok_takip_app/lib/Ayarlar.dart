@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:toptanci_stok_takip_app/Adres.dart';
-import 'package:toptanci_stok_takip_app/AnaSayfa.dart';
-import 'package:toptanci_stok_takip_app/Hakk%C4%B1nda.dart';
+import 'package:toptanci_stok_takip_app/Hakkinda.dart';
 import 'package:toptanci_stok_takip_app/SifreDegistirme.dart';
 import 'package:toptanci_stok_takip_app/main.dart';
 

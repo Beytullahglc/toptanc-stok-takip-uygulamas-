@@ -1,8 +1,8 @@
-import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:toptanci_stok_takip_app/Sayfalar.dart';
-import 'package:toptanci_stok_takip_app/HesapAc.dart';
-
+import 'package:firebase_core/firebase_core.dart';
+import 'package:toptanci_stok_takip_app/Service/Auth.dart';
 import 'firebase_options.dart';
 
 void main() async {
@@ -10,7 +10,7 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -47,12 +47,41 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
 
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+  String? errorMassage;
+  bool isLogin = true;
+  String? userId;
+
+  Future<void> createUser() async {
+    try{
+      await Auth().createUser(email: emailController.text, password: passwordController.text);
+    }on FirebaseAuthException catch(e){
+      setState(() {
+        errorMassage = e.message;
+      });
+    }
+  }
+
+  Future<void> signIn(BuildContext context) async {
+    try{
+      await Auth().signIn(email: emailController.text, password: passwordController.text);
+      
+      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => Sayfalar()));
+    }on FirebaseAuthException catch(e){
+      setState(() {
+        errorMassage = e.message;
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
 
     var ekranBilgisi = MediaQuery.of(context);
     double ekranYuksekligi = ekranBilgisi.size.height;
     double ekranGenisligi = ekranBilgisi.size.width;
+
 
     return Scaffold(
       backgroundColor: Colors.deepPurple,
@@ -73,8 +102,9 @@ class _LoginPageState extends State<LoginPage> {
                child: SizedBox(
                  width: ekranGenisligi*4/5,
                  child: TextField(
+                   controller: emailController,
                     decoration: InputDecoration(
-                      hintText: "Kullanıcı Adı",
+                      hintText: "Email",
                       hintStyle: TextStyle(color: Colors.deepPurple),
                       filled: true,
                       fillColor: Colors.white,
@@ -91,9 +121,10 @@ class _LoginPageState extends State<LoginPage> {
               child: SizedBox(
                 width: ekranGenisligi*4/5,
                 child: TextField(
+                  controller: passwordController,
                   obscureText: true,
                   decoration: InputDecoration(
-                    hintText: "Şifre",
+                    hintText: "Password",
                     hintStyle: TextStyle(color: Colors.deepPurple),
                     filled: true,
                     fillColor: Colors.white,
@@ -104,18 +135,23 @@ class _LoginPageState extends State<LoginPage> {
                 ),
               ),
             ),
+            errorMassage != null ? Text(errorMassage!) : const SizedBox.shrink(),
             Padding(
               padding: EdgeInsets.all(ekranGenisligi/30),
               child: SizedBox(
                 width: ekranGenisligi/2,
                 child: ElevatedButton(
-                  child: Text("Giriş Yap", style: TextStyle(fontSize: ekranGenisligi/20, color: Colors.white),),
+                  child: isLogin ?  Text("Giriş Yap", style: TextStyle(fontSize: ekranGenisligi/20, color: Colors.white),) : Text("Kayıt Ol", style: TextStyle(fontSize: ekranGenisligi/20, color: Colors.white),),
 
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.green,
                   ),
                   onPressed: (){
-                    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => Sayfalar()));
+                    if(isLogin){
+                      signIn(context);
+                    }else{
+                      createUser();
+                    }
                   },
 
                 ),
@@ -124,9 +160,11 @@ class _LoginPageState extends State<LoginPage> {
             
             GestureDetector(
               onTap: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context) => HesapAc()));
+                setState(() {
+                  isLogin = !isLogin;
+                });
               },
-              child: Text("Hesap Aç", style: TextStyle(
+              child: Text("Kayıt Ol", style: TextStyle(
                 color: Colors.green,
                 fontSize: ekranGenisligi/25,
                 fontWeight: FontWeight.bold,

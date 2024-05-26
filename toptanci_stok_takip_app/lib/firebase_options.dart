@@ -41,47 +41,46 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyBR_H89iyO2Vjd-lA8wAMPqSC9MckJ-wmE',
-    appId: '1:250362621858:web:bccf9f2ad44e7b351bccfb',
-    messagingSenderId: '250362621858',
-    projectId: 'toptancistoktakipuygulam-edf5f',
-    authDomain: 'toptancistoktakipuygulam-edf5f.firebaseapp.com',
-    storageBucket: 'toptancistoktakipuygulam-edf5f.appspot.com',
+    apiKey: 'AIzaSyA2in2Wg6o9vCSjWr1-oJOqD4MetF4b61o',
+    appId: '1:601132843655:web:3cae2f6ca3418b49e96e22',
+    messagingSenderId: '601132843655',
+    projectId: 'toptancistoktakipapp',
+    authDomain: 'toptancistoktakipapp.firebaseapp.com',
+    storageBucket: 'toptancistoktakipapp.appspot.com',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyBcMCN_NDpgx_cP41ew5YH1NIxmGNqzq9s',
-    appId: '1:250362621858:android:3f3da19e94d729fb1bccfb',
-    messagingSenderId: '250362621858',
-    projectId: 'toptancistoktakipuygulam-edf5f',
-    storageBucket: 'toptancistoktakipuygulam-edf5f.appspot.com',
+    apiKey: 'AIzaSyD7eC7CniLR8awZlC6YhMEettZlTIAaZBM',
+    appId: '1:601132843655:android:ba909df221e50446e96e22',
+    messagingSenderId: '601132843655',
+    projectId: 'toptancistoktakipapp',
+    storageBucket: 'toptancistoktakipapp.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyCseI9MQfQjeVeUCfVVgegVZDgOgMzFJGQ',
-    appId: '1:250362621858:ios:f6980984f3ff13561bccfb',
-    messagingSenderId: '250362621858',
-    projectId: 'toptancistoktakipuygulam-edf5f',
-    storageBucket: 'toptancistoktakipuygulam-edf5f.appspot.com',
+    apiKey: 'AIzaSyDo8D9HIDxzxxj55sotT62g1KMuubDbpTc',
+    appId: '1:601132843655:ios:093512774d1c87d8e96e22',
+    messagingSenderId: '601132843655',
+    projectId: 'toptancistoktakipapp',
+    storageBucket: 'toptancistoktakipapp.appspot.com',
     iosBundleId: 'com.example.toptanciStokTakipApp',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyCseI9MQfQjeVeUCfVVgegVZDgOgMzFJGQ',
-    appId: '1:250362621858:ios:f6980984f3ff13561bccfb',
-    messagingSenderId: '250362621858',
-    projectId: 'toptancistoktakipuygulam-edf5f',
-    storageBucket: 'toptancistoktakipuygulam-edf5f.appspot.com',
+    apiKey: 'AIzaSyDo8D9HIDxzxxj55sotT62g1KMuubDbpTc',
+    appId: '1:601132843655:ios:093512774d1c87d8e96e22',
+    messagingSenderId: '601132843655',
+    projectId: 'toptancistoktakipapp',
+    storageBucket: 'toptancistoktakipapp.appspot.com',
     iosBundleId: 'com.example.toptanciStokTakipApp',
   );
 
   static const FirebaseOptions windows = FirebaseOptions(
-    apiKey: 'AIzaSyBR_H89iyO2Vjd-lA8wAMPqSC9MckJ-wmE',
-    appId: '1:250362621858:web:e850ffeb636c1cd11bccfb',
-    messagingSenderId: '250362621858',
-    projectId: 'toptancistoktakipuygulam-edf5f',
-    authDomain: 'toptancistoktakipuygulam-edf5f.firebaseapp.com',
-    storageBucket: 'toptancistoktakipuygulam-edf5f.appspot.com',
+    apiKey: 'AIzaSyA2in2Wg6o9vCSjWr1-oJOqD4MetF4b61o',
+    appId: '1:601132843655:web:701b56b19977c432e96e22',
+    messagingSenderId: '601132843655',
+    projectId: 'toptancistoktakipapp',
+    authDomain: 'toptancistoktakipapp.firebaseapp.com',
+    storageBucket: 'toptancistoktakipapp.appspot.com',
   );
-
 }

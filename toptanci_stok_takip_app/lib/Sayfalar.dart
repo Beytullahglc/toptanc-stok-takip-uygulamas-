@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:toptanci_stok_takip_app/AnaSayfa.dart';
 import 'package:toptanci_stok_takip_app/Ayarlar.dart';
-import 'package:toptanci_stok_takip_app/Raporlar.dart';
 import 'package:toptanci_stok_takip_app/SiparislerSayfa.dart';
 import 'package:toptanci_stok_takip_app/UrunlerSayfa.dart';
 
@@ -14,9 +12,9 @@ class Sayfalar extends StatefulWidget {
 
 class _AnaSayfaState extends State<Sayfalar> {
 
-  var sayfaListesi = [Raporlar(), Siparisler(), AnaSayfa(), UrunlerSayfa(), Ayarlar()];
+  var sayfaListesi = [Siparisler(), UrunlerSayfa(), Ayarlar()];
 
-  int secilenIndeks = 2;
+  int secilenIndeks = 1;
 
   @override
   Widget build(BuildContext context) {
@@ -24,9 +22,7 @@ class _AnaSayfaState extends State<Sayfalar> {
       body: sayfaListesi[secilenIndeks],
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(icon: Icon(Icons.bar_chart), label: "Raporlar"),
           BottomNavigationBarItem(icon: Icon(Icons.shopping_cart), label: "Siparişler"),
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: "Ana Sayfa"),
           BottomNavigationBarItem(icon: Icon(Icons.list), label: "Ürünler"),
           BottomNavigationBarItem(icon: Icon(Icons.settings), label: "Ayarlar"),
         ],
