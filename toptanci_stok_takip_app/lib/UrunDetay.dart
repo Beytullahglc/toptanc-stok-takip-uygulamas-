@@ -1,11 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:toptanci_stok_takip_app/Urunler.dart';
+
+import 'package:toptanci_stok_takip_app/UrunlerSayfa.dart';
 
 class UrunDetay extends StatefulWidget {
-  const UrunDetay({super.key});
+  Urunler urun;
+  var urunAdi;
+  var urunResim;
+  var urunFiyati;
+  UrunDetay({Key? key, required this.urun}) : super(key: key){
+    urunAdi = urun.urunAdi;
+    urunResim = urun.urunResim;
+    urunFiyati = urun.urunFiyati;
+  }
+
 
   @override
   State<UrunDetay> createState() => _UrunDetayState();
 }
+
 
 class _UrunDetayState extends State<UrunDetay> {
   @override
@@ -40,8 +53,7 @@ class _UrunDetayState extends State<UrunDetay> {
                   ),
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(10.0), // Görüntünün köşe yuvarlaklığı
-                    child: Image.asset(
-                      'resimler/pirinç.png', // Görüntünün yolunu belirtin
+                    child: Image.asset(widget.urunResim as String, // Görüntünün yolunu belirtin
                       width: ekranGenisligi*3/4,
                       fit: BoxFit.cover, // Görüntüyü boyutlandırma modu
                     ),
@@ -67,12 +79,12 @@ class _UrunDetayState extends State<UrunDetay> {
                     children: [
                       Padding(
                         padding: const EdgeInsets.all(15.0),
-                        child: Text("Pirinç",style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20, color: Colors.white)),
+                        child: Text(widget.urunAdi as String,style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20, color: Colors.white)),
                       ),
                       Spacer(),
                       Padding(
                         padding: const EdgeInsets.all(15.0),
-                        child: Text("50TL",style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20, color: Colors.white)),
+                        child: Text(widget.urunFiyati.toString() ,style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20, color: Colors.white)),
                       )
                     ],
                   ),

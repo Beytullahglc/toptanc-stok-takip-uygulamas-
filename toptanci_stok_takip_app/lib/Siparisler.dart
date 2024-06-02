@@ -3,9 +3,10 @@ import 'package:toptanci_stok_takip_app/Urunler.dart';
 
 class Siparisler{
   int siparisId;
-  Urunler urunler;
-  Kullanici kullanici;
+  String urunAdi;
+  String kullaniciAdi;
   int siparisAdeti;
 
-  Siparisler(this.siparisId, this.urunler, this.kullanici, this.siparisAdeti);
+  Siparisler(
+      this.siparisId, this.urunAdi, this.kullaniciAdi, this.siparisAdeti);
 }

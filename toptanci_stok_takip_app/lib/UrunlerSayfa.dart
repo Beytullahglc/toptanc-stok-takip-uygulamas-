@@ -1,31 +1,25 @@
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:toptanci_stok_takip_app/UrunDetay.dart';
 import 'package:toptanci_stok_takip_app/Urunler.dart';
 
 class UrunlerSayfa extends StatefulWidget {
-  const UrunlerSayfa();
+  String? urunAdi;
+  String? urunFiyati;
+  String? urunResim;
+
+
 
   @override
   State<UrunlerSayfa> createState() => _UrunlerSayfaState();
+
 }
 
 class _UrunlerSayfaState extends State<UrunlerSayfa> {
 
-  Future<List<Urunler>> urunleriGoster() async {
-    var urunListesi = <Urunler>[];
+  var refUrunler = FirebaseDatabase.instance.reference().child("urunler_tablo");
 
-    var u1 = Urunler(1, "pirinç", 50, 300);
-    var u2 = Urunler(1, "bulgur", 30, 400);
-    var u3 = Urunler(1, "makarna", 20, 450);
-    var u4 = Urunler(1, "mercimek", 60, 500);
 
-    urunListesi.add(u1);
-    urunListesi.add(u2);
-    urunListesi.add(u3);
-    urunListesi.add(u4);
-
-    return urunListesi;
-  }
 
   bool aramaYapiliyorMu = false;
   Widget build(BuildContext context) {
@@ -66,11 +60,21 @@ class _UrunlerSayfaState extends State<UrunlerSayfa> {
           ),
         ],
       ),
-      body: FutureBuilder<List<Urunler>>(
-        future: urunleriGoster(),
-        builder: (context,snapshot){
-          if(snapshot.hasData){
-            var urunListesi = snapshot.data;
+      body: StreamBuilder<DatabaseEvent>(
+        stream: refUrunler.onValue,
+        builder: (context,event){
+          if(event.hasData){
+            var urunListesi = <Urunler>[];
+            var gelenDegerler = event.data!.snapshot.value as dynamic;
+
+            if(gelenDegerler != null){
+              gelenDegerler.forEach((key,nesne){
+                var gelenUrun = Urunler.fromJson(key, nesne);
+                urunListesi.add(gelenUrun);
+              });
+            }
+
+
             return GridView.builder(
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
@@ -80,8 +84,8 @@ class _UrunlerSayfaState extends State<UrunlerSayfa> {
               itemBuilder: (context,index){
                 var urun = urunListesi![index];
                 return GestureDetector(
-                  onTap: (){
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => UrunDetay()));
+                  onTap:  () async{
+                    await Navigator.push(context, MaterialPageRoute(builder: (context) => UrunDetay (urun: urun)));
                   },
                   child: Card(
                     child: Column(
@@ -89,7 +93,7 @@ class _UrunlerSayfaState extends State<UrunlerSayfa> {
                       children: [
                         Padding(
                           padding: const EdgeInsets.all(8.0),
-                          child: Image.asset("resimler/pirinç.png"),
+                          child: Image.asset(urun.urunResim),
                         ),
                         Text("", style: TextStyle(fontSize: 10, color: Colors.deepPurple),),
                       ],

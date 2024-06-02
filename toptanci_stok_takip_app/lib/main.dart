@@ -1,4 +1,7 @@
+import 'dart:collection';
+
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:toptanci_stok_takip_app/Sayfalar.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -46,6 +49,24 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+
+  var refUrunler = FirebaseDatabase.instance.reference().child("urunler_tablo");
+
+  Future<void> urunEkle() async{
+    var bilgi = HashMap<String,dynamic>();
+    bilgi["urunAdi"] = "Makarna";
+    bilgi["urunFiyati"] = 20;
+    bilgi["urunStok"] = 3000;
+    bilgi["urunResim"] = "resimler/pirinç.png";
+    refUrunler.push().set(bilgi);
+  }
+
+  @override
+  void initState() {
+    super.initState();
+
+    urunEkle();
+  }
 
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
