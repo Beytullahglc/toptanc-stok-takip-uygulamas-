@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:toptanci_stok_takip_app/Ayarlar.dart';
 import 'package:toptanci_stok_takip_app/SiparislerSayfa.dart';
+import 'package:toptanci_stok_takip_app/Urunler.dart';
 import 'package:toptanci_stok_takip_app/UrunlerSayfa.dart';
 
 class Sayfalar extends StatefulWidget {
@@ -12,7 +13,7 @@ class Sayfalar extends StatefulWidget {
 
 class _AnaSayfaState extends State<Sayfalar> {
 
-  var sayfaListesi = [Siparisler(), UrunlerSayfa(), Ayarlar()];
+  var sayfaListesi = [SiparislerSayfa(), UrunlerSayfa(), Ayarlar()];
 
   int secilenIndeks = 1;
 

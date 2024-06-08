@@ -51,21 +51,15 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
 
   var refUrunler = FirebaseDatabase.instance.reference().child("urunler_tablo");
+  var refSiparisler = FirebaseDatabase.instance.reference().child("siparisler_tablo");
 
-  Future<void> urunEkle() async{
-    var bilgi = HashMap<String,dynamic>();
-    bilgi["urunAdi"] = "Makarna";
-    bilgi["urunFiyati"] = 20;
-    bilgi["urunStok"] = 3000;
-    bilgi["urunResim"] = "resimler/pirinç.png";
-    refUrunler.push().set(bilgi);
-  }
+
 
   @override
   void initState() {
     super.initState();
 
-    urunEkle();
+
   }
 
   final TextEditingController emailController = TextEditingController();
@@ -77,11 +71,20 @@ class _LoginPageState extends State<LoginPage> {
   Future<void> createUser() async {
     try{
       await Auth().createUser(email: emailController.text, password: passwordController.text);
+      _showSnackBar();
     }on FirebaseAuthException catch(e){
       setState(() {
         errorMassage = e.message;
       });
     }
+  }
+
+  void _showSnackBar() {
+    final snackBar = SnackBar(
+      content: Text('Hesap Başarıyla Kaydedildi!'),
+      backgroundColor: Colors.green,
+    );
+    ScaffoldMessenger.of(context).showSnackBar(snackBar);
   }
 
   Future<void> signIn(BuildContext context) async {

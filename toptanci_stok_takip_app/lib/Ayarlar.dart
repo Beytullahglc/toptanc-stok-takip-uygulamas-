@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:toptanci_stok_takip_app/Adres.dart';
+
 import 'package:toptanci_stok_takip_app/Hakkinda.dart';
 import 'package:toptanci_stok_takip_app/SifreDegistirme.dart';
 import 'package:toptanci_stok_takip_app/main.dart';
@@ -55,16 +55,7 @@ class _AyarlarState extends State<Ayarlar> {
             ),
           ),
 
-          Padding(
-            padding: const EdgeInsets.only(top:10,bottom: 10),
-            child: ListTile(
-              title: Text("Adres",style: TextStyle(color: Colors.deepPurple, fontSize: 20),),
-              trailing: Icon(Icons.arrow_right,color: Colors.deepPurple,),
-              onTap: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context) => Adres()));
-              },
-            ),
-          ),
+
 
           Padding(
             padding: const EdgeInsets.only(top:10,bottom: 10),
@@ -74,23 +65,6 @@ class _AyarlarState extends State<Ayarlar> {
               onTap: (){
                 Navigator.push(context, MaterialPageRoute(builder: (context) => Hakkinda()));
               },
-            ),
-          ),
-
-          Padding(
-            padding: const EdgeInsets.all(15),
-            child: Row(
-              children: [
-                Text("Bildirimler",style: TextStyle(color: Colors.deepPurple,fontSize: 20),),
-                Spacer(),
-                Switch(
-                    value: bildirim,
-                    onChanged: (veri){
-                      setState(() {
-                        bildirim = veri;
-                      });
-                    })
-              ],
             ),
           ),
         ],
