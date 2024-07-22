@@ -27,7 +27,15 @@ class _AyarlarState extends State<Ayarlar> {
     return Scaffold(
       appBar: AppBar(
         title: Text("Ayarlar",style: TextStyle(color: Colors.white),),
-        backgroundColor: Colors.deepPurple,
+        flexibleSpace: Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              colors: [Colors.deepPurple, Colors.purple ,Colors.purpleAccent], // Gradient renkleri
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+            ),
+          ),
+        ),
         centerTitle: true,
       ),
       body: ListView(

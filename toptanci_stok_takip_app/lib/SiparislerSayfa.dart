@@ -1,9 +1,6 @@
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:toptanci_stok_takip_app/Siparisler.dart';
-import 'package:toptanci_stok_takip_app/UrunDetay.dart';
-import 'package:toptanci_stok_takip_app/Urunler.dart';
-import 'package:toptanci_stok_takip_app/UrunlerSayfa.dart';
 
 class SiparislerSayfa extends StatefulWidget {
   const SiparislerSayfa({Key? key}) : super(key: key);
@@ -23,7 +20,15 @@ class _SiparislerState extends State<SiparislerSayfa> {
           'Siparişler',
           style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
         ),
-        backgroundColor: Colors.deepPurple,
+        flexibleSpace: Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              colors: [Colors.deepPurple, Colors.purple ,Colors.purpleAccent], // Gradient renkleri
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+            ),
+          ),
+        ),
         centerTitle: true,
       ),
       body: StreamBuilder<DatabaseEvent>(
@@ -54,7 +59,10 @@ class _SiparislerState extends State<SiparislerSayfa> {
                         padding: const EdgeInsets.all(10.0),
                         child: Row(
                           children: [
-                            Image.asset("resimler/${siparis.urunAdi.toLowerCase()}.png"),
+                            SizedBox(
+                                width: 80,
+                                child: Image.asset("resimler/${siparis.urunAdi.toLowerCase()}.png"),
+                            ),
                             Spacer(),
                             Padding(
                               padding: const EdgeInsets.all(8.0),

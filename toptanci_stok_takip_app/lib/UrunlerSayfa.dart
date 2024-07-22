@@ -33,7 +33,15 @@ class _UrunlerSayfaState extends State<UrunlerSayfa> {
           'Ürünler',
           style: TextStyle(color: Colors.white),
         ),
-        backgroundColor: Colors.deepPurple,
+        flexibleSpace: Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              colors: [Colors.deepPurple, Colors.purple ,Colors.purpleAccent], // Gradient renkleri
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+            ),
+          ),
+        ),
         centerTitle: true,
         actions: [
           aramaYapiliyorMu
@@ -97,6 +105,7 @@ class _UrunlerSayfaState extends State<UrunlerSayfa> {
                             builder: (context) => UrunDetay(urun: urun)));
                   },
                   child: Card(
+                    color: Colors.white,
                     shadowColor: Colors.deepPurple,
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
