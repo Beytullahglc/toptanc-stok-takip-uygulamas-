@@ -1,5 +1,3 @@
-import 'dart:collection';
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
@@ -48,16 +46,28 @@ class LoginPage extends StatefulWidget {
   State<LoginPage> createState() => _LoginPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
 
   var refUrunler = FirebaseDatabase.instance.reference().child("urunler_tablo");
   var refSiparisler = FirebaseDatabase.instance.reference().child("siparisler_tablo");
 
 
+  late AnimationController iconKontrol;
+  late Animation<double> iconAnimasyonDegerleri;
 
   @override
   void initState() {
     super.initState();
+
+    iconKontrol = AnimationController(duration: Duration(milliseconds: 1000), vsync: this);
+
+    iconAnimasyonDegerleri = Tween(begin: 0.0, end: 220.0)
+        .animate(CurvedAnimation(parent: iconKontrol, curve: Curves.easeInOut))
+      ..addListener(() {
+        setState(() {});
+      });
+
+    iconKontrol.forward();
 
 
   }
@@ -116,13 +126,17 @@ class _LoginPageState extends State<LoginPage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
 
-            SizedBox(
-              width: ekranGenisligi/2,
-                child: Image.asset("resimler/logo.png", ),
+            Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: SizedBox(
+                width: iconAnimasyonDegerleri.value,
+                  height: iconAnimasyonDegerleri.value,
+                  child: Image.asset("resimler/logo.png", ),
+              ),
             ),
 
              Padding(
-               padding: EdgeInsets.all(ekranYuksekligi/40),
+               padding: EdgeInsets.all(ekranYuksekligi/35),
                child: SizedBox(
                  width: ekranGenisligi*4/5,
                  child: TextField(
@@ -141,7 +155,7 @@ class _LoginPageState extends State<LoginPage> {
              ),
 
             Padding(
-              padding: EdgeInsets.all(ekranYuksekligi/40),
+              padding: EdgeInsets.all(ekranYuksekligi/35),
               child: SizedBox(
                 width: ekranGenisligi*4/5,
                 child: TextField(
